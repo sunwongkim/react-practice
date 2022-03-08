@@ -1,33 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// // import logo from "./logo.svg";
-// import "./App.css";
-
-// function App() {
-//   // js작성
-//   const [loading, setLoading] = useState(true);
-//   const [coin, setCoin] = useState([]);
-//   console.log(loading);
-
-//   useEffect(() => {
-//     fetch("https://jsonplaceholder.typicode.com/users")
-//       // fetch("  https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=year")
-//       .then((response) => response.json())
-//       .then((json) => {
-//         setCoin(json);
-//         // loading을 false로 바꿈
-//         setLoading(false);
-//         console.log(coin);
-//       });
-//   }, []);
-
-//   return (
-//     // html작성
-//     <div className="App">{loading ? <h1>Loading...</h1> : null}</div>
-//   );
-// }
-
-// export default App;
-
 import React, { useState, useEffect } from "react";
 // import logo from "./logo.svg";
 import "./App.css";
@@ -43,10 +13,10 @@ function App() {
       // fetch("https://api.coinpaprika.com/v1/tickers")
       .then((response) => response.json())
       .then((json) => {
+        console.log(json);
         setCoin(json);
         // loading을 false로 바꿈
         setLoading(false);
-        console.log(json);
         console.log(coin);
       });
   }, []);
