@@ -1,16 +1,22 @@
-// import React, { useState, useEffect } from "react";
-import React from "react";
+import React, { useState } from "react";
 // import Title from "./components/Title";
 // import Btn from "./components/Btn";
 import { Title, Btn } from "./components/example";
 
 function App() {
   // js작성
+  const [value, setValue] = useState("내용 바꾸기");
+
   return (
     // html작성
     <div className="App">
       <Title title="제목" subTitle="부제목"></Title>
-      <Btn text="Btn1" fontSize={100} />
+      {/* onClick 이벤트는 컴포넌트 가서 직접 추가 필요 */}
+      <Btn
+        changeValue={() => setValue("내용 바뀜")}
+        text={value}
+        fontSize={30}
+      />
       <Btn text="Btn2" fontSize={50} />
     </div>
   );
