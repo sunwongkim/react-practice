@@ -18,13 +18,10 @@ export function Title(props) {
   );
 }
 
-// onclick 이벤트 생성 후 changeValue props 할당
-export function Btn({ text, fontSize, changeValue }) {
+// onclick 이벤트 생성하려면 onClick props 할당
+export function Btn({ text, fontSize, onClick }) {
   return (
-    <button
-      onClick={changeValue}
-      style={{ margin: " 20px", fontSize: fontSize }}
-    >
+    <button onClick={onClick} style={{ margin: " 20px", fontSize: fontSize }}>
       {text}
     </button>
   );
