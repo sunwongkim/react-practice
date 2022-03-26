@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import logo from "./logo.svg";
 import Movie from "../components/Movie";
 
 function Home() {
@@ -18,9 +17,6 @@ function Home() {
         setMovies(json.data.movies);
         // loading을 false로 바꿈
         setLoading(false);
-        // console.log(json);
-        // console.log(json.data.movies);
-        // console.log(movies);
       });
   }, []);
   console.log(movies);
@@ -40,17 +36,17 @@ function Home() {
 
   return (
     // html작성
-    <div className="Home">
+    <>
       <h1>The movie!!</h1>
       {loading ? <h1>loading...</h1> : null}
       {/* AND 연산자 사용. 하나라도 false -> null
       {loading && <h1>loading...</h1>} */}
-
       {/* 영화 리스트 */}
       <ul>
         {movies.map((movies) => (
           <Movie
             key={movies.id}
+            id={movies.id}
             title={movies.title}
             summary={movies.summary}
             poster={movies.medium_cover_image}
@@ -58,23 +54,7 @@ function Home() {
           />
         ))}
       </ul>
-
-      {/* Movie 컴포넌트
-      <ul>
-        {movies.map((movies) => (
-          <li key={movies.id}>
-            <b>{movies.title}</b>
-            <img src={movies.medium_cover_image} />
-              장르 표시
-            <ul>
-              {movies.genres.map((genres) => (
-                <li key={genres}>{genres}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul> */}
-    </div>
+    </>
   );
 }
 
