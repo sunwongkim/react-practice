@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Header from "../components/Header";
 import Movie from "../components/Movie";
+import styles from "./Home.module.css";
 
 function Home() {
   // js작성
@@ -37,23 +39,27 @@ function Home() {
   return (
     // html작성
     <>
-      <h1>The movie!!</h1>
-      {loading ? <h1>loading...</h1> : null}
-      {/* AND 연산자 사용. 하나라도 false -> null
-      {loading && <h1>loading...</h1>} */}
-      {/* 영화 리스트 */}
-      <ul>
-        {movies.map((movies) => (
-          <Movie
-            key={movies.id}
-            id={movies.id}
-            title={movies.title}
-            summary={movies.summary}
-            poster={movies.medium_cover_image}
-            genres={movies.genres}
-          />
-        ))}
-      </ul>
+      <Header />
+      <div className={styles.container}>
+        {loading ? <span className={styles.loader}>loading...</span> : null}
+        {/* AND 연산자 사용. 하나라도 false -> null
+        {loading && <h1>loading...</h1>} */}
+
+        {/* 영화 리스트 */}
+        <div className={styles.movies}>
+          {movies.map((movies) => (
+            <Movie
+              key={movies.id}
+              id={movies.id}
+              title={movies.title}
+              year={movies.year}
+              summary={movies.summary}
+              poster={movies.medium_cover_image}
+              genres={movies.genres}
+            />
+          ))}
+        </div>
+      </div>
     </>
   );
 }
